@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- .......For description appear in Google bottom of website link..... -->
+    <meta name="description" content="{% block description%}{% endblock %}">
+    <!-- ............For when google shodld look for or not........ -->
+    <meta name="robots" content="{%block robots%}{%endblock%}">
+    <!-- ........For keywords........ -->
+    <meta name="keywords" content="{%block keywords%}{%endblock%}">
+    <link rel="stylesheet" href="{% block css %}{% endblock %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico'%}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    {%block body%}
+    {%endblock%}
+</body>
+</html>
