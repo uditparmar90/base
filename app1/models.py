@@ -20,7 +20,7 @@ class product(models.Model):
     title=models.CharField(max_length=50)
     description=models.TextField(max_length=200)
     category=models.CharField(max_length=10)
-    image=models.ImageField(upload_to='product/images')
+    image=models.ImageField(blank=True)
     brand=models.CharField(max_length=10)
     price=models.IntegerField(
         validators=[MinValueValidator(0.0)]
