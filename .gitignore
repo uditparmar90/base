@@ -1,6 +1,7 @@
 # Ignore the myenv virtual environment directory
 venv/
 .vscode
+upload
 
 # Ignore cache files and directories
 __pycache__/
