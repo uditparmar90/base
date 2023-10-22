@@ -2,6 +2,8 @@
 venv/
 .vscode
 upload
+db.sqlite3
+**/migrations/
 
 # Ignore cache files and directories
 __pycache__/

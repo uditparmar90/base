@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from base.settings import BASE_DIR
 from .models import product
 
 # Create your views here.
-
 def index(request):
-    products=product.objects.all()
-    return render(request,'products/home.html',{"context":products, "BASE_DIR":BASE_DIR})
+    products=product.objects.all().order_by('-id')[:4]
+    print(products)
+    return render(request,'products/home.html',{"context":products,})
 
 def signup(request):
     return render(request,'products/signup.html')

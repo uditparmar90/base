@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator
 
 
+
 # Create your models here.
 
 class Shirt(models.Model):
@@ -27,7 +28,12 @@ class product(models.Model):
     price=models.IntegerField(
         validators=[MinValueValidator(0.0)]
     )
+    slug=models.SlugField(blank=True)
 
 
     def __str__(self):
         return f"{self.name}"
+    def save(self,*args,**kwargs):
+        super(product,self).save(*args,**kwargs)
+        self.slug=self.id
+        super(product,self).save(*args,**kwargs)
