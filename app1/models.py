@@ -29,10 +29,12 @@ class product(models.Model):
         validators=[MinValueValidator(0.0)]
     )
     slug=models.SlugField(blank=True)
+    is_bestseller=models.BooleanField(blank=True,default=False)
 
 
     def __str__(self):
         return f"{self.name}"
+    
     def save(self,*args,**kwargs):
         super(product,self).save(*args,**kwargs)
         self.slug=self.id
