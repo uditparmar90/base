@@ -17,14 +17,19 @@ class Shirt(models.Model):
     is_bestseller = models.BooleanField(default=False)
     def __str__(self):
         return f"{self.name}"
+    
+class Brand(models.Model):
+    title=models.CharField(max_length=20)
+    logo=models.ImageField(blank=True)
 
 
 class product(models.Model):
+    id = models.AutoField(primary_key=True)
     name=models.CharField(max_length=50)
     description=models.TextField(max_length=200)
     category=models.CharField(max_length=10)
     image=models.ImageField(blank=True, upload_to="product-img")
-    brand=models.CharField(max_length=10)
+    brand = models.ForeignKey(Brand, blank=True, null=True, on_delete=models.CASCADE)
     price=models.IntegerField(
         validators=[MinValueValidator(0.0)]
     )
@@ -39,3 +44,5 @@ class product(models.Model):
         super(product,self).save(*args,**kwargs)
         self.slug=self.id
         super(product,self).save(*args,**kwargs)
+
+
